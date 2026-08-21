@@ -44,10 +44,12 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -202,6 +204,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 860px) {
+  .site-header { position: static; }
   .nav-toggle { display: block; }
   .nav-list {
     position: fixed;
@@ -619,8 +622,18 @@ section { padding: 96px 0; }
   flex-wrap: wrap;
 }
 
-.avatar-item { text-align: center; width: 180px; }
-.avatar-item .ink-block.avatar { width: 160px; height: 160px; margin: 0 auto 14px; }
+.avatar-item { text-align: center; width: 180px; display: inline-block; text-decoration: none; }
+.avatar-item .ink-block.avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.avatar-item:hover .ink-block.avatar {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: inset 0 0 0 3px var(--paper-card), inset 0 0 0 4px rgba(173,138,62,0.6), 0 14px 26px -10px rgba(23,20,15,0.45);
+}
+a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .avatar-item .name {
   font-family: var(--font-label);
   font-size: 13px;
@@ -873,6 +886,9 @@ section { padding: 96px 0; }
 .cta-band .btn-ghost:hover { background: var(--paper-card); color: var(--dai); }
 
 /* ---------------- Member bio detail ---------------- */
+.member-card { scroll-margin-top: 110px; }
+.timeline-item { scroll-margin-top: 110px; }
+
 .member-card .card-body .role {
   font-family: var(--font-en);
   font-style: italic;
@@ -943,13 +959,13 @@ section { padding: 96px 0; }
 <section id="about">
   <div class="wrap">
     <div class="split reveal">
-      <div class="ink-block photo" style="background-image:url('assets/oulu_wangji.jpg')"></div>
-      <img class="about-rock" src="assets/accent_rock.jpg" alt="太湖石">
+      <div class="ink-block photo" style="background-image:url('assets/yunshui_xiaoxiang.jpg')"></div>
       <div>
-        <p class="duan-label">一段 · 缘起</p>
+        <p class="duan-label">一弄 · 缘起</p>
         <h2 style="font-family:var(--font-display);font-size:clamp(26px,3vw,34px);margin:0 0 18px;">在南半球，聆一曲高山流水</h2>
-        <p style="color:var(--ink-soft);font-size:16px;margin:0 0 16px;">澳大利亚中国琴会成立于旅居澳洲的古琴爱好者与专业琴人之间，致力于在墨尔本、悉尼、布里斯班等地推广古琴艺术，定期举办雅集、讲座与教学活动。</p>
-        <p style="color:var(--ink-soft);font-size:16px;margin:0 0 28px;">我们相信，古琴不仅是乐器，更是一种修身养性的生活方式。无论您是初学者还是资深琴人，都欢迎加入我们，以琴会友。</p>
+        <p style="color:var(--ink-soft);font-size:16px;margin:0 0 16px;">澳大利亚中国琴会创立于二〇一七年，发起于墨尔本。彼时琴友不过十数人，而今已逾数百，源源不绝——此固赖华夏儿女行遍四海，亦赖中华文脉深入人心，琴道日渐为世人所重。墨尔本本为多元文化交汇之地，亦为古琴艺术生根发扬，提供了一方沃土。</p>
+        <p style="color:var(--ink-soft);font-size:16px;margin:0 0 16px;">丝桐合为琴，中有太古声。古琴为九州本土所孕育，历数千年而不绝，位列"琴棋书画"四艺之首，非徒悦耳之器，实为文人雅士内省修身、感通天地之道器。抚琴之时，静以制虑，明以见性；内安其心，外通古今。</p>
+        <p style="color:var(--ink-soft);font-size:16px;margin:0 0 28px;">琴心寄我心，我心见琴心。我们在南半球拾此清音，愿以今人之心，应和这亘古未绝的琴心。</p>
         <a href="members.html" class="btn btn-ghost">查看全部会员 →</a>
       </div>
     </div>
@@ -959,35 +975,35 @@ section { padding: 96px 0; }
 <section style="background:var(--paper-deep);border-top:1px solid rgba(173,138,62,0.35);">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="duan-label">二段 · 琴人</p>
+      <p class="duan-label">二弄 · 琴人</p>
       <h2>澳大利亚琴人风采</h2>
-      <p>他们来自不同城市、不同背景，因琴而聚。点击进入会员页面，认识更多琴社成员。</p>
+      <p>他们来自四方，志趣各异，却因一缕琴心相聚于此。点选头像，可识更多琴社同人。</p>
     </div>
     <div class="avatar-row reveal">
-      <div class="avatar-item">
+      <a class="avatar-item" href="members.html#hujun">
         <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_hujun.jpg');"></div>
         <div class="name">胡俊</div>
-      </div>
-      <div class="avatar-item">
+      </a>
+      <a class="avatar-item" href="members.html#xujianyuan">
         <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_xu.jpg');"></div>
         <div class="name">徐建元</div>
-      </div>
-      <div class="avatar-item">
-        <div class="ink-block avatar"><span>陈</span></div>
-        <div class="name">陈＊＊</div>
-      </div>
-      <div class="avatar-item">
+      </a>
+      <a class="avatar-item" href="members.html#songkeyue">
+        <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_songkeyue.jpg');"></div>
+        <div class="name">宋柯樾</div>
+      </a>
+      <a class="avatar-item" href="members.html#sunrui">
         <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_sunrui.jpg');"></div>
         <div class="name">孙瑞</div>
-      </div>
-      <div class="avatar-item">
-        <div class="ink-block avatar"><span>周</span></div>
-        <div class="name">周＊＊</div>
-      </div>
-      <div class="avatar-item">
+      </a>
+      <a class="avatar-item" href="members.html#wangpinyuan">
+        <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_wangpinyuan.jpg');"></div>
+        <div class="name">汪品元</div>
+      </a>
+      <a class="avatar-item" href="members.html">
         <div class="ink-block avatar"><span>+</span></div>
         <div class="name" style="color:var(--dai-soft);">更多会员</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -995,33 +1011,33 @@ section { padding: 96px 0; }
 <section>
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="duan-label">三段 · 正音</p>
+      <p class="duan-label">三弄 · 正音</p>
       <h2>精选演奏视频</h2>
       <p>记录琴会成员的演奏片段，从经典曲目到即兴发挥，尽在其中。</p>
     </div>
     <div class="grid grid-3 reveal">
-      <div class="card">
-        <div class="ink-block photo" style="background-image:url('assets/liushui.jpg')">
+      <a class="card" href="videos.html">
+        <div class="ink-block photo" style="background-image:url('assets/poster_xu_liushui.jpg')">
           <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
         </div>
         <div class="card-body">
           <span class="tag">流水</span>
-          <h3>《流水》选段</h3>
-          <p>演奏者：王＊＊ · 摘自 2025 年秋季雅集实录</p>
-          <div class="meta">时长 06:12</div>
+          <h3>《流水》</h3>
+          <p>演奏者：徐建元副会长 · 端午雅集现场实录</p>
+          <div class="meta">时长 08:44</div>
         </div>
-      </div>
-      <div class="card">
-        <div class="ink-block photo" style="background-image:url('assets/meihua_sannong.jpg')">
+      </a>
+      <a class="card" href="videos.html">
+        <div class="ink-block photo" style="background-image:url('assets/poster_longsheng.jpg')">
           <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
         </div>
         <div class="card-body">
-          <span class="tag">梅花三弄</span>
-          <h3>《梅花三弄》</h3>
-          <p>演奏者：李＊＊ · 悉尼分社年度公开演出</p>
-          <div class="meta">时长 08:47</div>
+          <span class="tag">梅园吟</span>
+          <h3>《梅园吟》</h3>
+          <p>演奏者：龙生老师 · 端午雅集现场实录</p>
+          <div class="meta">时长 08:46</div>
         </div>
-      </div>
+      </a>
       <a class="card" href="videos.html">
         <div class="ink-block photo" style="background-image:url('assets/poster_hujun_oulu.jpg')">
           <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
@@ -1043,29 +1059,29 @@ section { padding: 96px 0; }
 <section style="background:var(--paper-deep);border-top:1px solid rgba(173,138,62,0.35);">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="duan-label">四段 · 雅集</p>
-      <h2>近期雅集活动</h2>
+      <p class="duan-label">四弄 · 雅集</p>
+      <h2>往期雅集回顾</h2>
       <p>雅集是琴会最重要的传统——以琴会友，品茗论道。</p>
     </div>
     <div class="grid grid-2 reveal">
-      <div class="card">
-        <div class="ink-block photo" style="background-image:url('assets/yunshui_xiaoxiang.jpg')"></div>
+      <a class="card" href="gatherings.html#moyuqinxin">
+        <div class="ink-block photo" style="background-image:url('assets/moyu_g3_group.jpg')"></div>
         <div class="card-body">
-          <span class="tag">中秋雅集</span>
-          <h3>2026 年中秋雅集</h3>
-          <p>与琴友共赏中秋月色，抚琴、品茶、赏画，欢迎会员及琴友携友参加。</p>
-          <div class="meta">墨尔本 · 9 月 · 详情见活动页</div>
+          <span class="tag">端午雅集</span>
+          <h3>端午雅集 · 墨语琴心</h3>
+          <p>清和沐端阳，琴会成员相聚琪鑫草堂，抚琴、赏粽，共度端午佳节。</p>
+          <div class="meta">2026 年 6 月 · 点击查看详情</div>
         </div>
-      </div>
-      <div class="card">
-        <div class="ink-block photo" style="background-image:url('assets/meiyuan_yin.jpg')"></div>
+      </a>
+      <a class="card" href="gatherings.html#yarra">
+        <div class="ink-block photo" style="background-image:url('assets/yarra_13.jpg')"></div>
         <div class="card-body">
-          <span class="tag">新春雅集</span>
-          <h3>2026 新春古琴雅集</h3>
-          <p>新春佳节，琴会成员齐聚一堂，合奏《良宵引》，共迎新岁。</p>
-          <div class="meta">悉尼 · 2 月 · 详情见活动页</div>
+          <span class="tag">古琴音乐会</span>
+          <h3>"雅拉琴韵" 古琴音乐会</h3>
+          <p>与洞天琴苑联合主办，特邀李果老师、缪鹭老师共襄盛举。</p>
+          <div class="meta">墨尔本 · 2025 年 5 月 · 点击查看详情</div>
         </div>
-      </div>
+      </a>
     </div>
     <div style="text-align:center;margin-top:48px;">
       <a href="gatherings.html" class="btn btn-ghost">查看全部雅集活动 →</a>
@@ -1077,7 +1093,7 @@ section { padding: 96px 0; }
   <div class="wrap reveal">
     <h2>与我们一起，抚琴论道</h2>
     <p>无论您是资深琴人还是刚接触古琴的爱好者，都欢迎加入澳大利亚中国琴会。</p>
-    <a href="mailto:info@example.org" class="btn btn-ghost">联系我们加入琴会</a>
+    <a href="mailto:junhu888188@gmail.com" class="btn btn-ghost">联系我们加入琴会</a>
   </div>
 </section>
 
@@ -1112,7 +1128,7 @@ section { padding: 96px 0; }
       </div>
       <div>
         <h4>联系我们</h4>
-        <a href="mailto:info@example.org">info@example.org</a>
+        <a href="mailto:junhu888188@gmail.com">junhu888188@gmail.com</a>
         <a href="#">微信公众号：澳大利亚中国琴会</a>
         <a href="#">墨尔本 · 悉尼 · 布里斯班</a>
       </div>

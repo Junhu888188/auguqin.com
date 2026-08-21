@@ -43,10 +43,12 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -201,6 +203,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 860px) {
+  .site-header { position: static; }
   .nav-toggle { display: block; }
   .nav-list {
     position: fixed;
@@ -618,8 +621,18 @@ section { padding: 96px 0; }
   flex-wrap: wrap;
 }
 
-.avatar-item { text-align: center; width: 180px; }
-.avatar-item .ink-block.avatar { width: 160px; height: 160px; margin: 0 auto 14px; }
+.avatar-item { text-align: center; width: 180px; display: inline-block; text-decoration: none; }
+.avatar-item .ink-block.avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.avatar-item:hover .ink-block.avatar {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: inset 0 0 0 3px var(--paper-card), inset 0 0 0 4px rgba(173,138,62,0.6), 0 14px 26px -10px rgba(23,20,15,0.45);
+}
+a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .avatar-item .name {
   font-family: var(--font-label);
   font-size: 13px;
@@ -872,6 +885,9 @@ section { padding: 96px 0; }
 .cta-band .btn-ghost:hover { background: var(--paper-card); color: var(--dai); }
 
 /* ---------------- Member bio detail ---------------- */
+.member-card { scroll-margin-top: 110px; }
+.timeline-item { scroll-margin-top: 110px; }
+
 .member-card .card-body .role {
   font-family: var(--font-en);
   font-style: italic;
@@ -926,7 +942,7 @@ section { padding: 96px 0; }
   <div class="wrap">
     <span class="eyebrow-en">Performances</span>
     <h1>演奏视频</h1>
-    <p>记录琴会成员在雅集、公开演出与教学示范中的演奏片段。点击卡片可替换为真实视频链接或嵌入代码。</p>
+    <p>记录琴会成员在雅集、公开演出中的演奏片段。</p>
   </div>
 </section>
 
@@ -945,13 +961,6 @@ section { padding: 96px 0; }
 
 <section>
   <div class="wrap">
-    <div class="tabs reveal">
-      <button class="tab active" data-filter="all">全部</button>
-      <button class="tab" data-filter="solo">独奏</button>
-      <button class="tab" data-filter="ensemble">合奏</button>
-      <button class="tab" data-filter="teaching">教学示范</button>
-    </div>
-
     <div class="grid grid-3 reveal">
 
       <div class="card">
@@ -968,77 +977,47 @@ section { padding: 96px 0; }
         </div>
       </div>
 
-      <a class="card" href="#" data-category="solo">
-        <div class="ink-block photo" style="background-image:url('assets/liushui.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
+      <div class="card">
+        <div class="ink-block has-video">
+          <video controls preload="none" poster="assets/poster_xu_liushui.jpg">
+            <source src="videos/xujianyuan_liushui.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="card-body">
           <span class="tag">独奏 · 流水</span>
-          <h3>《流水》选段</h3>
-          <p>演奏者：王＊＊ · 摘自 2025 年秋季雅集实录</p>
-          <div class="meta">时长 06:12 · 2025.10</div>
+          <h3>《流水》</h3>
+          <p>演奏者：徐建元副会长 · 端午雅集"墨语琴心"现场实录</p>
+          <div class="meta">时长 08:44 · 2026.06</div>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="#" data-category="solo">
-        <div class="ink-block photo" style="background-image:url('assets/meihua_sannong.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
+      <div class="card">
+        <div class="ink-block has-video">
+          <video controls preload="none" poster="assets/poster_wang_meihua.jpg">
+            <source src="videos/wangpinyuan_meihuasannong.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="card-body">
           <span class="tag">独奏 · 梅花三弄</span>
           <h3>《梅花三弄》</h3>
-          <p>演奏者：李＊＊ · 悉尼分社年度公开演出</p>
-          <div class="meta">时长 08:47 · 2025.08</div>
+          <p>演奏者：汪品元 · 端午雅集"墨语琴心"现场实录</p>
+          <div class="meta">时长 10:38 · 2026.06</div>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="#" data-category="teaching">
-        <div class="ink-block photo" style="background-image:url('assets/pingsha_luoyan.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
+      <div class="card">
+        <div class="ink-block has-video">
+          <video controls preload="none" poster="assets/poster_longsheng.jpg">
+            <source src="videos/longsheng_meiyuanyin.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="card-body">
-          <span class="tag">教学示范 · 平沙落雁</span>
-          <h3>《平沙落雁》指法讲解</h3>
-          <p>主讲：陈＊＊导师 · 基础教学系列 第 3 集</p>
-          <div class="meta">时长 15:20 · 2025.06</div>
+          <span class="tag">独奏 · 梅园吟</span>
+          <h3>《梅园吟》</h3>
+          <p>演奏者：龙生老师 · 端午雅集"墨语琴心"现场实录</p>
+          <div class="meta">时长 08:46 · 2026.06</div>
         </div>
-      </a>
-
-      <a class="card" href="#" data-category="ensemble">
-        <div class="ink-block photo" style="background-image:url('assets/qiuhong.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
-        </div>
-        <div class="card-body">
-          <span class="tag">合奏 · 良宵引</span>
-          <h3>新春雅集合奏《良宵引》</h3>
-          <p>琴会全体会员合奏 · 2025 新春雅集现场实录</p>
-          <div class="meta">时长 04:55 · 2025.02</div>
-        </div>
-      </a>
-
-      <a class="card" href="#" data-category="solo">
-        <div class="ink-block photo" style="background-image:url('assets/lisao.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
-        </div>
-        <div class="card-body">
-          <span class="tag">独奏 · 阳关三叠</span>
-          <h3>《阳关三叠》</h3>
-          <p>演奏者：周＊＊ · 会员习琴汇报演出</p>
-          <div class="meta">时长 05:40 · 2025.04</div>
-        </div>
-      </a>
-
-      <a class="card" href="#" data-category="teaching">
-        <div class="ink-block photo" style="background-image:url('assets/qingxuyin.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
-        </div>
-        <div class="card-body">
-          <span class="tag">教学示范 · 减字谱</span>
-          <h3>减字谱入门讲解</h3>
-          <p>主讲：李＊＊副会长 · 面向新会员的入门课</p>
-          <div class="meta">时长 22:10 · 2025.03</div>
-        </div>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -1048,7 +1027,7 @@ section { padding: 96px 0; }
   <div class="wrap reveal">
     <h2>投稿您的演奏视频</h2>
     <p>欢迎会员将雅集或练习片段投稿，我们会精选发布于此页面。</p>
-    <a href="mailto:info@example.org" class="btn btn-ghost">联系我们投稿</a>
+    <a href="mailto:junhu888188@gmail.com" class="btn btn-ghost">联系我们投稿</a>
   </div>
 </section>
 
@@ -1083,7 +1062,7 @@ section { padding: 96px 0; }
       </div>
       <div>
         <h4>联系我们</h4>
-        <a href="mailto:info@example.org">info@example.org</a>
+        <a href="mailto:junhu888188@gmail.com">junhu888188@gmail.com</a>
         <a href="#">微信公众号：澳大利亚中国琴会</a>
         <a href="#">墨尔本 · 悉尼 · 布里斯班</a>
       </div>

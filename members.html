@@ -43,10 +43,12 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -201,6 +203,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 860px) {
+  .site-header { position: static; }
   .nav-toggle { display: block; }
   .nav-list {
     position: fixed;
@@ -618,8 +621,18 @@ section { padding: 96px 0; }
   flex-wrap: wrap;
 }
 
-.avatar-item { text-align: center; width: 180px; }
-.avatar-item .ink-block.avatar { width: 160px; height: 160px; margin: 0 auto 14px; }
+.avatar-item { text-align: center; width: 180px; display: inline-block; text-decoration: none; }
+.avatar-item .ink-block.avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.avatar-item:hover .ink-block.avatar {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: inset 0 0 0 3px var(--paper-card), inset 0 0 0 4px rgba(173,138,62,0.6), 0 14px 26px -10px rgba(23,20,15,0.45);
+}
+a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .avatar-item .name {
   font-family: var(--font-label);
   font-size: 13px;
@@ -872,6 +885,9 @@ section { padding: 96px 0; }
 .cta-band .btn-ghost:hover { background: var(--paper-card); color: var(--dai); }
 
 /* ---------------- Member bio detail ---------------- */
+.member-card { scroll-margin-top: 110px; }
+.timeline-item { scroll-margin-top: 110px; }
+
 .member-card .card-body .role {
   font-family: var(--font-en);
   font-style: italic;
@@ -913,7 +929,7 @@ section { padding: 96px 0; }
   <div class="wrap">
     <span class="eyebrow-en">Our Members</span>
     <h1>会员介绍</h1>
-    <p>他们来自不同的城市与背景，因古琴而相聚。以下为部分会员简介（示例内容，欢迎替换为真实资料与照片）。</p>
+    <p>他们来自不同的城市与背景，因古琴而相聚。</p>
   </div>
 </section>
 
@@ -932,16 +948,9 @@ section { padding: 96px 0; }
 
 <section>
   <div class="wrap">
-    <div class="tabs reveal">
-      <button class="tab active" data-filter="all">全部</button>
-      <button class="tab" data-filter="council">理事会</button>
-      <button class="tab" data-filter="teacher">导师</button>
-      <button class="tab" data-filter="member">会员</button>
-    </div>
-
     <div class="grid grid-3 reveal">
 
-      <div class="card member-card" data-category="council">
+      <div id="hujun" class="card member-card" data-category="council">
         <div class="ink-block photo" style="border-radius:0;aspect-ratio:4/3;background-image:url('assets/portrait_hujun.jpg');background-position:center 30%;"></div>
         <div class="card-body">
           <span class="role">President · 会长</span>
@@ -950,7 +959,7 @@ section { padding: 96px 0; }
         </div>
       </div>
 
-      <div class="card member-card" data-category="council">
+      <div id="xujianyuan" class="card member-card" data-category="council">
         <div class="ink-block photo" style="border-radius:0;aspect-ratio:4/3;background-image:url('assets/portrait_xu.jpg');background-position:center 25%;"></div>
         <div class="card-body">
           <span class="role">Vice President · 副会长</span>
@@ -960,42 +969,30 @@ section { padding: 96px 0; }
         </div>
       </div>
 
-      <div class="card member-card" data-category="teacher">
-        <div class="ink-block avatar" style="border-radius:0;aspect-ratio:4/3;"><span>导师</span></div>
+      <div id="songkeyue" class="card member-card" data-category="council">
+        <div class="ink-block photo" style="border-radius:0;aspect-ratio:4/3;background-image:url('assets/portrait_songkeyue.jpg');"></div>
         <div class="card-body">
-          <span class="role">Instructor · 导师</span>
-          <h3>陈＊＊（示例姓名）</h3>
-          <p>中央音乐学院古琴专业毕业，现任琴会教学导师，教学风格严谨细腻，学生遍布布里斯班与黄金海岸。</p>
-          <div class="meta">布里斯班 · 加入于 2021</div>
+          <span class="role">Council · 理事 · 青年理事会理事长</span>
+          <h3>宋柯樾</h3>
+          <p>旅澳青年古琴艺术家，浙派徐门古琴墨尔本分社副社长，中国乐器协会古琴研究会会员、浙江省音乐家协会会员、中国琴会会员。2018 年起致力于中国古琴文化在墨尔本的传播与推广，多次于国际文化交流活动及音乐会上演奏、讲解古琴。曾受邀出席 2022 年第 17 届巴拿马世界华人春晚及艺术博览会，获巴拿马共和国文旅部授予"金艺奖"；后于中、澳两地发起中英文古琴公益讲座数十余场，2023 年获评"中国艺术名家、传承创新文化榜样"。</p>
         </div>
       </div>
 
-      <div class="card member-card" data-category="member">
+      <div id="wangpinyuan" class="card member-card" data-category="council">
+        <div class="ink-block photo" style="border-radius:0;aspect-ratio:4/3;background-image:url('assets/portrait_wangpinyuan.jpg');"></div>
+        <div class="card-body">
+          <span class="role">Council · 青年理事会副理事长</span>
+          <h3>汪品元 <span style="font-weight:400;font-size:15px;color:var(--ink-soft);">字晏之，号秉瑜</span></h3>
+          <p>汪铎先生嫡孙，自幼相伴祖父，耳濡目染，好古习琴，勤承家学。尤喜丝弦古琴，受祖父影响亦偏爱道家琴曲，追求清静自然、虚淡冲和之境。秉持"琴乃君子之道器"的琴学观，习琴所重不止于指法声律，更在琴曲所寄之意与操守。现致力于家传琴学、丝弦古琴及传统琴曲文化的研习与传播。</p>
+        </div>
+      </div>
+
+      <div id="sunrui" class="card member-card" data-category="member">
         <div class="ink-block photo" style="border-radius:0;aspect-ratio:4/3;background-image:url('assets/portrait_sunrui.jpg');background-position:center 25%;"></div>
         <div class="card-body">
           <span class="role">Member · 会员</span>
           <h3>孙瑞 <span style="font-weight:400;font-size:15px;color:var(--ink-soft);">号不务斋主</span></h3>
           <p>启蒙于已故山西琴家南林旺先生，后师从赵晓霞、陈璨等李祥霆一脉琴家。</p>
-        </div>
-      </div>
-
-      <div class="card member-card" data-category="member">
-        <div class="ink-block avatar" style="border-radius:0;aspect-ratio:4/3;"><span>周</span></div>
-        <div class="card-body">
-          <span class="role">Member · 会员</span>
-          <h3>周＊＊（示例姓名）</h3>
-          <p>留学期间接触古琴并加入琴会，如今坚持每周练琴，正在学习《阳关三叠》。</p>
-          <div class="meta">阿德莱德 · 加入于 2023</div>
-        </div>
-      </div>
-
-      <div class="card member-card" data-category="member">
-        <div class="ink-block avatar" style="border-radius:0;aspect-ratio:4/3;"><span>林</span></div>
-        <div class="card-body">
-          <span class="role">Member · 会员</span>
-          <h3>林＊＊（示例姓名）</h3>
-          <p>古琴与书法双修，常在雅集活动中现场挥毫，为琴会活动设计海报与请柬。</p>
-          <div class="meta">珀斯 · 加入于 2023</div>
         </div>
       </div>
 
@@ -1005,9 +1002,9 @@ section { padding: 96px 0; }
 
 <section class="cta-band">
   <div class="wrap reveal">
-    <h2>成为琴会会员</h2>
-    <p>无论初学或资深，欢迎填写申请表加入澳大利亚中国琴会，与我们一起研习古琴。</p>
-    <a href="mailto:info@example.org" class="btn btn-ghost">申请加入</a>
+    <h2>琴友若需联系</h2>
+    <p>请发邮件至 junhu888188@gmail.com</p>
+    <a href="mailto:junhu888188@gmail.com" class="btn btn-ghost">发送邮件</a>
   </div>
 </section>
 
@@ -1042,7 +1039,7 @@ section { padding: 96px 0; }
       </div>
       <div>
         <h4>联系我们</h4>
-        <a href="mailto:info@example.org">info@example.org</a>
+        <a href="mailto:junhu888188@gmail.com">junhu888188@gmail.com</a>
         <a href="#">微信公众号：澳大利亚中国琴会</a>
         <a href="#">墨尔本 · 悉尼 · 布里斯班</a>
       </div>

@@ -43,10 +43,12 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -201,6 +203,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 860px) {
+  .site-header { position: static; }
   .nav-toggle { display: block; }
   .nav-list {
     position: fixed;
@@ -618,8 +621,18 @@ section { padding: 96px 0; }
   flex-wrap: wrap;
 }
 
-.avatar-item { text-align: center; width: 180px; }
-.avatar-item .ink-block.avatar { width: 160px; height: 160px; margin: 0 auto 14px; }
+.avatar-item { text-align: center; width: 180px; display: inline-block; text-decoration: none; }
+.avatar-item .ink-block.avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.avatar-item:hover .ink-block.avatar {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: inset 0 0 0 3px var(--paper-card), inset 0 0 0 4px rgba(173,138,62,0.6), 0 14px 26px -10px rgba(23,20,15,0.45);
+}
+a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .avatar-item .name {
   font-family: var(--font-label);
   font-size: 13px;
@@ -872,6 +885,9 @@ section { padding: 96px 0; }
 .cta-band .btn-ghost:hover { background: var(--paper-card); color: var(--dai); }
 
 /* ---------------- Member bio detail ---------------- */
+.member-card { scroll-margin-top: 110px; }
+.timeline-item { scroll-margin-top: 110px; }
+
 .member-card .card-body .role {
   font-family: var(--font-en);
   font-style: italic;
@@ -913,7 +929,7 @@ section { padding: 96px 0; }
   <div class="wrap">
     <span class="eyebrow-en">Gatherings</span>
     <h1>雅集活动</h1>
-    <p>雅集是古琴文化中以琴会友的传统聚会形式。以下为即将举行与过往的雅集记录（示例内容）。</p>
+    <p>雅集是古琴文化中以琴会友的传统聚会形式。以下为琴会往期活动记录。</p>
   </div>
 </section>
 
@@ -933,83 +949,71 @@ section { padding: 96px 0; }
 <section>
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="duan-label">即将举行</p>
-      <h2>近期雅集</h2>
-    </div>
-
-    <div class="grid grid-2 reveal" style="margin-bottom:96px;">
-      <div class="card">
-        <div class="ink-block photo" style="background-image:url('assets/yunshui_xiaoxiang.jpg')"></div>
-        <div class="card-body">
-          <span class="tag">中秋雅集</span>
-          <h3>2026 年中秋雅集</h3>
-          <p>与琴友共赏中秋月色，抚琴、品茶、赏画。届时将有会员合奏与新曲首演，欢迎会员及琴友携友参加。</p>
-          <div class="meta">墨尔本 · 2026 年 9 月 · 报名详情请联系我们</div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ink-block photo" style="background-image:url('assets/meiyuan_yin.jpg')"></div>
-        <div class="card-body">
-          <span class="tag">古琴讲座</span>
-          <h3>斫琴工艺与选材讲座</h3>
-          <p>特邀资深斫琴师分享古琴制作工艺，从选材、槽腹到上漆的完整流程，附现场问答环节。</p>
-          <div class="meta">悉尼 · 2026 年 10 月 · 名额有限</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-head reveal">
       <p class="duan-label">往期回顾</p>
       <h2>雅集记录</h2>
-      <p>每一场雅集都是一段共同的记忆，以下为往期活动回顾（示例文字与图片）。</p>
+      <p>每一场雅集都是一段共同的记忆，以下为琴会往期活动回顾。</p>
     </div>
 
     <div class="timeline reveal">
 
-      <div class="timeline-item">
-        <span class="date">2026 年 2 月</span>
-        <h3>新春古琴雅集</h3>
-        <p>农历新年之际，琴会成员齐聚墨尔本某茶室，合奏《良宵引》，并邀请书法会友现场挥毫，共迎新岁。当晚共有二十余位会员与琴友到场。</p>
-        <div class="gallery-strip">
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="date">2025 年 10 月</span>
-        <h3>秋季雅集 · 流水寄怀</h3>
-        <p>以《流水》为主题的秋日雅集，在户外庭院举行，结合古琴与茶道，探讨"高山流水遇知音"的传统琴道精神。</p>
-        <div class="gallery-strip">
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="date">2025 年 6 月</span>
-        <h3>悉尼分会成立雅集</h3>
-        <p>庆祝悉尼分会正式成立，来自各地的琴人相聚一堂，进行了首场跨城市联合演出，并确立了悉尼分会的日常教学安排。</p>
-        <div class="gallery-strip">
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-          <div class="ink-block"><span class="placeholder-tag">示例照片</span></div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <span class="date">2025 年端午节期间</span>
+      <div id="moyuqinxin" class="timeline-item">
+        <span class="date">2026 年 6 月</span>
         <h3>端午雅集 · 墨语琴心</h3>
-        <p>清和沐端阳，琴会成员相聚一堂，抚琴、赏粽、以琴会友，共度端午佳节。以下为活动现场实录（具体日期待核实补充）。</p>
-        <div class="ink-block has-video" style="max-width:680px;aspect-ratio:16/9;">
+        <p>清和沐端阳，琴会成员相聚琪鑫草堂，抚琴、赏粽、以琴会友，共度端午佳节。以下为活动现场实录与花絮。</p>
+        <div class="ink-block has-video" style="max-width:680px;aspect-ratio:16/9;margin-bottom:16px;">
           <video controls preload="none" poster="assets/poster_moyu_event.jpg">
             <source src="videos/moyu_qinxin_event.mp4" type="video/mp4">
           </video>
+        </div>
+        <div class="gallery-strip">
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g2_hujun_oulu.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g6_host1.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g7_host2.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g16_longsheng_hujun.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g8_xu_liushui.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g18_wang_meihua.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g17_perform_d.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g20_perform_e.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g21_perform_f.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g22_perform_g.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g23_perform_h.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g9_perform_a.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g14_perform_b.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g15_perform_c.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g11_speak_a.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g19_xu_tea.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g10_portrait_a.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g12_portrait_b.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g13_portrait_c.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g24_group_b.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g3_group.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g4_backdrop.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/moyu_g5_program.jpg')"></div>
+        </div>
+      </div>
+
+      <div id="yarra" class="timeline-item">
+        <span class="date">2025 年 5 月</span>
+        <h3>"雅拉琴韵" 古琴音乐会</h3>
+        <p>于墨尔本联邦广场举办，与洞天琴苑联合主办，特邀李果老师、缪鹭老师两位琴家共襄盛举，以琴会友，共叙雅音。</p>
+        <div class="gallery-strip">
+          <div class="ink-block photo" style="background-image:url('assets/yarra_11.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_01.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_03.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_04.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_06.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_07.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_09.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_10.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_02.jpg');background-position:center 20%;"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_08.jpg');background-position:center 20%;"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_05.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_12.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_13.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_14.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_15.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_16_wang.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_17_song.jpg')"></div>
         </div>
       </div>
 
@@ -1021,7 +1025,7 @@ section { padding: 96px 0; }
   <div class="wrap reveal">
     <h2>参加下一场雅集</h2>
     <p>关注我们的公众号或订阅邮件通知，第一时间获取雅集活动信息。</p>
-    <a href="mailto:info@example.org" class="btn btn-ghost">订阅活动通知</a>
+    <a href="mailto:junhu888188@gmail.com" class="btn btn-ghost">订阅活动通知</a>
   </div>
 </section>
 
@@ -1056,7 +1060,7 @@ section { padding: 96px 0; }
       </div>
       <div>
         <h4>联系我们</h4>
-        <a href="mailto:info@example.org">info@example.org</a>
+        <a href="mailto:junhu888188@gmail.com">junhu888188@gmail.com</a>
         <a href="#">微信公众号：澳大利亚中国琴会</a>
         <a href="#">墨尔本 · 悉尼 · 布里斯班</a>
       </div>

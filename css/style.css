@@ -36,10 +36,12 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
@@ -194,6 +196,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 860px) {
+  .site-header { position: static; }
   .nav-toggle { display: block; }
   .nav-list {
     position: fixed;
@@ -611,8 +614,18 @@ section { padding: 96px 0; }
   flex-wrap: wrap;
 }
 
-.avatar-item { text-align: center; width: 180px; }
-.avatar-item .ink-block.avatar { width: 160px; height: 160px; margin: 0 auto 14px; }
+.avatar-item { text-align: center; width: 180px; display: inline-block; text-decoration: none; }
+.avatar-item .ink-block.avatar {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+a.avatar-item:hover .ink-block.avatar {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: inset 0 0 0 3px var(--paper-card), inset 0 0 0 4px rgba(173,138,62,0.6), 0 14px 26px -10px rgba(23,20,15,0.45);
+}
+a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .avatar-item .name {
   font-family: var(--font-label);
   font-size: 13px;
@@ -865,6 +878,9 @@ section { padding: 96px 0; }
 .cta-band .btn-ghost:hover { background: var(--paper-card); color: var(--dai); }
 
 /* ---------------- Member bio detail ---------------- */
+.member-card { scroll-margin-top: 110px; }
+.timeline-item { scroll-margin-top: 110px; }
+
 .member-card .card-body .role {
   font-family: var(--font-en);
   font-style: italic;
