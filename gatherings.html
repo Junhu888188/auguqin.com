@@ -204,19 +204,31 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 860px) {
   .site-header { position: static; }
-  .nav-toggle { display: block; }
+  .site-header .wrap { flex-wrap: wrap; padding-top: calc(40px + env(safe-area-inset-top)); }
+  .nav-toggle { display: block; position: relative; z-index: 10; order: 2; }
+  .brand { order: 1; }
+  .site-header nav {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+  }
   .nav-list {
-    position: fixed;
-    top: 73px; left: 0; right: 0;
+    width: 100%;
     flex-direction: column;
     background: var(--paper);
-    padding: 24px 32px 32px;
+    padding: 0 32px;
     gap: 20px;
-    border-bottom: 1px solid rgba(32,29,25,0.1);
-    transform: translateY(-110%);
-    transition: transform 0.35s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
   }
-  .nav-list.open { transform: translateY(0); }
+  .nav-list.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 20px 32px 28px;
+    border-top: 1px solid rgba(32,29,25,0.1);
+  }
 }
 
 /* ---------------- 徽位分隔线 · String Divider ---------------- */
@@ -1014,6 +1026,7 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
           <div class="ink-block photo" style="background-image:url('assets/yarra_15.jpg')"></div>
           <div class="ink-block photo" style="background-image:url('assets/yarra_16_wang.jpg')"></div>
           <div class="ink-block photo" style="background-image:url('assets/yarra_17_song.jpg')"></div>
+          <div class="ink-block photo" style="background-image:url('assets/yarra_18_liuying.jpg')"></div>
         </div>
       </div>
 

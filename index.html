@@ -205,19 +205,31 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 860px) {
   .site-header { position: static; }
-  .nav-toggle { display: block; }
+  .site-header .wrap { flex-wrap: wrap; padding-top: calc(40px + env(safe-area-inset-top)); }
+  .nav-toggle { display: block; position: relative; z-index: 10; order: 2; }
+  .brand { order: 1; }
+  .site-header nav {
+    order: 3;
+    width: 100%;
+    flex-basis: 100%;
+  }
   .nav-list {
-    position: fixed;
-    top: 73px; left: 0; right: 0;
+    width: 100%;
     flex-direction: column;
     background: var(--paper);
-    padding: 24px 32px 32px;
+    padding: 0 32px;
     gap: 20px;
-    border-bottom: 1px solid rgba(32,29,25,0.1);
-    transform: translateY(-110%);
-    transition: transform 0.35s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
   }
-  .nav-list.open { transform: translateY(0); }
+  .nav-list.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 20px 32px 28px;
+    border-top: 1px solid rgba(32,29,25,0.1);
+  }
 }
 
 /* ---------------- 徽位分隔线 · String Divider ---------------- */
@@ -1000,6 +1012,10 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
         <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_wangpinyuan.jpg');"></div>
         <div class="name">汪品元</div>
       </a>
+      <a class="avatar-item" href="members.html#liuying">
+        <div class="ink-block avatar photo-round" style="background-image:url('assets/avatar_liuying.jpg');"></div>
+        <div class="name">刘影</div>
+      </a>
       <a class="avatar-item" href="members.html">
         <div class="ink-block avatar"><span>+</span></div>
         <div class="name" style="color:var(--dai-soft);">更多会员</div>
@@ -1016,9 +1032,11 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
       <p>记录琴会成员的演奏片段，从经典曲目到即兴发挥，尽在其中。</p>
     </div>
     <div class="grid grid-3 reveal">
-      <a class="card" href="videos.html">
-        <div class="ink-block photo" style="background-image:url('assets/poster_xu_liushui.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
+      <div class="card">
+        <div class="ink-block has-video">
+          <video controls preload="none" poster="assets/poster_xu_liushui.jpg">
+            <source src="videos/xujianyuan_liushui.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="card-body">
           <span class="tag">流水</span>
@@ -1026,10 +1044,12 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
           <p>演奏者：徐建元副会长 · 端午雅集现场实录</p>
           <div class="meta">时长 08:44</div>
         </div>
-      </a>
-      <a class="card" href="videos.html">
-        <div class="ink-block photo" style="background-image:url('assets/poster_longsheng.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
+      </div>
+      <div class="card">
+        <div class="ink-block has-video">
+          <video controls preload="none" poster="assets/poster_longsheng.jpg">
+            <source src="videos/longsheng_meiyuanyin.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="card-body">
           <span class="tag">梅园吟</span>
@@ -1037,10 +1057,12 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
           <p>演奏者：龙生老师 · 端午雅集现场实录</p>
           <div class="meta">时长 08:46</div>
         </div>
-      </a>
-      <a class="card" href="videos.html">
-        <div class="ink-block photo" style="background-image:url('assets/poster_hujun_oulu.jpg')">
-          <div class="play-btn"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M6 4L16 10L6 16Z"/></svg></div>
+      </div>
+      <div class="card">
+        <div class="ink-block has-video">
+          <video controls preload="none" poster="assets/poster_hujun_oulu.jpg">
+            <source src="videos/hujun_oulu_wangji.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="card-body">
           <span class="tag">独奏 · 鸥鹭忘机</span>
@@ -1048,7 +1070,7 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
           <p>演奏者：胡俊会长</p>
           <div class="meta">时长 05:57</div>
         </div>
-      </a>
+      </div>
     </div>
     <div style="text-align:center;margin-top:48px;">
       <a href="videos.html" class="btn btn-ghost">观看更多演奏视频 →</a>
