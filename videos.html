@@ -380,7 +380,7 @@ section { padding: 96px 0; }
   height: auto;
   max-height: 720px;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 30%;
   display: block;
 }
 
@@ -876,12 +876,13 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .gallery-strip .ink-block { aspect-ratio: 1/1; border-radius: 2px; }
 
 /* ---------------- Reveal on scroll ---------------- */
-.reveal {
+.reveal { opacity: 1; }
+.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal.in-view {
+.js .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
@@ -924,6 +925,7 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add("js");</script>
 
 <header class="site-header">
   <div class="wrap">
@@ -997,8 +999,8 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
         <div class="card-body">
           <span class="tag">独奏 · 欸乃</span>
           <h3>《欸乃》</h3>
-          <p>演奏者：胡俊会长</p>
-          <div class="meta">时长 12:34</div>
+          <p>演奏者：胡俊会长 · "雅拉琴韵"音乐会现场实录</p>
+          <div class="meta">时长 12:34 · 2025.05</div>
         </div>
       </div>
 
@@ -1025,7 +1027,7 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
         <div class="card-body">
           <span class="tag">独奏 · 梅花三弄</span>
           <h3>《梅花三弄》</h3>
-          <p>演奏者：汪品元 · 端午雅集"墨语琴心"现场实录</p>
+          <p>演奏者：汪品元 · 汪铎先生周年纪念音乐会现场实录（苏州）</p>
           <div class="meta">时长 10:38 · 2026.06</div>
         </div>
       </div>
@@ -1157,6 +1159,11 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   document.querySelectorAll('.reveal, .string-divider').forEach((el) => observer.observe(el));
+
+  // 保险：若滚动触发未能命中（极端设备/浏览器情况），到时强制显示，避免内容永久隐藏
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.in-view), .string-divider:not(.in-view)').forEach((el) => el.classList.add('in-view'));
+  }, 1200);
 
   // 雅集 / 视频页 筛选标签
   const tabs = document.querySelectorAll('.tab');

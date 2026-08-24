@@ -373,7 +373,7 @@ section { padding: 96px 0; }
   height: auto;
   max-height: 720px;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 30%;
   display: block;
 }
 
@@ -869,12 +869,13 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 .gallery-strip .ink-block { aspect-ratio: 1/1; border-radius: 2px; }
 
 /* ---------------- Reveal on scroll ---------------- */
-.reveal {
+.reveal { opacity: 1; }
+.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.reveal.in-view {
+.js .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
