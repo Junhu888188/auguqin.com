@@ -178,6 +178,18 @@ img { max-width: 100%; display: block; }
 
 .nav-list a.active { color: var(--cinnabar-deep); }
 
+.lang-switch {
+  font-family: var(--font-en) !important;
+  font-style: italic;
+  border: 1px solid rgba(32,29,25,0.3);
+  border-radius: 3px;
+  padding: 4px 10px !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.04em !important;
+}
+.lang-switch::after { content: none !important; }
+.lang-switch:hover { border-color: var(--cinnabar); color: var(--cinnabar-deep); }
+
 .nav-toggle {
   display: none;
   background: none;
@@ -361,7 +373,7 @@ section { padding: 96px 0; }
   height: auto;
   max-height: 720px;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 45%;
   display: block;
 }
 
