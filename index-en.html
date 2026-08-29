@@ -525,11 +525,13 @@ section { padding: 96px 0; }
 .ink-block.has-video {
   background: var(--ink);
 }
-.ink-block.has-video video {
+.ink-block.has-video video,
+.ink-block.has-video iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  border: 0;
 }
 .ink-block.has-video::after,
 .ink-block.has-video::before { content: none; }
