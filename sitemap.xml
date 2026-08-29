@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://www.auguqin.com/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/index-en.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.auguqin.com/index-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/index-en.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.auguqin.com/members.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/members.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/members-en.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.auguqin.com/members-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/members.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/members-en.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.auguqin.com/videos.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/videos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/videos-en.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.auguqin.com/videos-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/videos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/videos-en.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.auguqin.com/gatherings.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/gatherings.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/gatherings-en.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.auguqin.com/gatherings-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.auguqin.com/gatherings.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.auguqin.com/gatherings-en.html"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
