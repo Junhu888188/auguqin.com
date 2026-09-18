@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.auguqin.com/sitemap.xml
+Sitemap: https://auguqin.com/sitemap.xml
