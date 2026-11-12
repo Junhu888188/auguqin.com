@@ -49,6 +49,7 @@
 
   <url>
     <loc>https://auguqin.com/gatherings.html</loc>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://auguqin.com/gatherings.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://auguqin.com/gatherings-en.html"/>
     <changefreq>weekly</changefreq>
@@ -56,6 +57,7 @@
   </url>
   <url>
     <loc>https://auguqin.com/gatherings-en.html</loc>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://auguqin.com/gatherings.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://auguqin.com/gatherings-en.html"/>
     <changefreq>weekly</changefreq>

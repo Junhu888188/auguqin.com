@@ -892,6 +892,16 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
 
 .gallery-strip .ink-block { aspect-ratio: 1/1; border-radius: 2px; }
 
+/* Mid-Autumn gathering: accessible photos and bilingual captions. */
+#mid-autumn-2026 figure { margin: 0; min-width: 0; }
+#mid-autumn-2026 .group-photo { max-width: 680px; margin-bottom: 16px; }
+#mid-autumn-2026 img.ink-block.photo { width: 100%; height: auto; aspect-ratio: 4/3; }
+#mid-autumn-2026 figcaption { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+#mid-autumn-2026 figcaption span,
+#mid-autumn-2026 h3 span { display: block; }
+#mid-autumn-2026 .en { font-family: var(--font-en); }
+#mid-autumn-2026 h3 span { font-size: 18px; font-weight: 400; }
+
 /* ---------------- Reveal on scroll ---------------- */
 .reveal { opacity: 1; }
 .js .reveal {
@@ -1000,6 +1010,45 @@ a.avatar-item:hover .name { color: var(--cinnabar-deep); }
     </div>
 
     <div class="timeline reveal">
+
+      <div id="mid-autumn-2026" class="timeline-item">
+        <span class="date">11 October 2026</span>
+        <h3>Mid-Autumn Guqin Gathering 2026<span lang="zh-Hans">丙午中秋雅集</span></h3>
+        <p>A two-minute glimpse of the 2026 Mid-Autumn Guqin Gathering of the Australia Guqin Society, held on 11 October at Qixin Cottage. On a sunny, windy day, friends gathered around a garden pavilion with tea and refreshments, played in turn, and closed with a group photo.</p>
+        <figure class="group-photo">
+          <img class="ink-block photo" src="assets/mid-autumn-2026/group.webp" alt="Group photo at Qixin Cottage — Mid-Autumn Guqin Gathering 2026" width="1600" height="1200" loading="lazy">
+          <figcaption>Group photo · 丙午中秋雅集合影</figcaption>
+        </figure>
+        <div class="ink-block has-video" style="max-width:680px;aspect-ratio:16/9;margin-bottom:16px;">
+          <iframe src="https://www.youtube.com/embed/e6o7ozHnWWU" title="Mid-Autumn Guqin Gathering 2026 — Highlights" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="gallery-strip">
+          <figure>
+            <img class="ink-block photo" src="assets/mid-autumn-2026/liu-ying-dongting.webp" alt="Liu Ying performing Autumn Thoughts at Dongting Lake on guqin — 刘影老师《洞庭秋思》" width="1600" height="1200" loading="lazy">
+            <figcaption><span class="en" lang="en">Liu Ying · Autumn Thoughts at Dongting Lake</span><span lang="zh-Hans">刘影老师 · 《洞庭秋思》</span></figcaption>
+          </figure>
+          <figure>
+            <img class="ink-block photo" src="assets/mid-autumn-2026/song-keyue-spring-breeze.webp" alt="Song Keyue performing Spring Breeze on guqin — 宋柯樾老师《春风》" width="1600" height="1200" loading="lazy">
+            <figcaption><span class="en" lang="en">Song Keyue · Spring Breeze</span><span lang="zh-Hans">宋柯樾老师 · 《春风》</span></figcaption>
+          </figure>
+          <figure>
+            <img class="ink-block photo" src="assets/mid-autumn-2026/jenny-drunken-ecstasy.webp" alt="Jenny performing Drunken Ecstasy on guqin — Jenny《酒狂》" width="1600" height="1200" loading="lazy">
+            <figcaption><span class="en" lang="en">Jenny · Drunken Ecstasy</span><span lang="zh-Hans">Jenny · 《酒狂》</span></figcaption>
+          </figure>
+          <figure>
+            <img class="ink-block photo" src="assets/mid-autumn-2026/sophie-liezi.webp" alt="Sophie performing Liezi Rides the Wind on guqin — Sophie《列子御风》" width="1600" height="1200" loading="lazy">
+            <figcaption><span class="en" lang="en">Sophie · Liezi Rides the Wind</span><span lang="zh-Hans">Sophie · 《列子御风》</span></figcaption>
+          </figure>
+          <figure>
+            <img class="ink-block photo" src="assets/mid-autumn-2026/gai-lue-listening-to-the-spring.webp" alt="Gai Lü performing Listening to the Spring on guqin — 盖略《听泉吟》" width="1600" height="1200" loading="lazy">
+            <figcaption><span class="en" lang="en">Gai Lü · Listening to the Spring</span><span lang="zh-Hans">盖略 · 《听泉吟》</span></figcaption>
+          </figure>
+          <figure>
+            <img class="ink-block photo" src="assets/mid-autumn-2026/hu-jun-plum-blossom.webp" alt="Hu Jun performing Three Variations on Plum Blossom on guqin — 胡俊老师《梅花三弄》" width="1600" height="1200" loading="lazy">
+            <figcaption><span class="en" lang="en">Hu Jun · Three Variations on Plum Blossom</span><span lang="zh-Hans">胡俊老师 · 《梅花三弄》</span></figcaption>
+          </figure>
+        </div>
+      </div>
 
       <div id="moyuqinxin" class="timeline-item">
         <span class="date">June 2026</span>
